@@ -5,13 +5,14 @@ Vagrant.configure("2") do |config|
     config.vbguest.no_remote   = true
   end
 
-  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", path: "script_all.sh"
 
   # node.js server1
   config.vm.define :vm1 do |vm1|
     vm1.vm.box = "bento/ubuntu-20.04"
     vm1.vm.network :private_network, ip: "192.168.100.3"
     vm1.vm.hostname = "vm1"
+    # vm1.vm.provision "shell", path: "script_vm1.sh"
   end
 
   # node.js server2
@@ -19,6 +20,7 @@ Vagrant.configure("2") do |config|
     vm2.vm.box = "bento/ubuntu-20.04"
     vm2.vm.network :private_network, ip: "192.168.100.4"
     vm2.vm.hostname = "vm2"
+    vm2.vm.provision "shell", path: "script_vm2.sh"
   end
 
   # nginx load balancer
@@ -26,6 +28,7 @@ Vagrant.configure("2") do |config|
     vm3.vm.box = "bento/ubuntu-20.04"
     vm3.vm.network :private_network, ip: "192.168.100.5"
     vm3.vm.hostname = "vm3"
+    # vm3.vm.provision "shell", path: "script_vm3.sh"
   end
   
 end
