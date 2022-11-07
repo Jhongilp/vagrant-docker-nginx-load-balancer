@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     vm2.vm.box = "bento/ubuntu-20.04"
     vm2.vm.network :private_network, ip: "192.168.100.4"
     vm2.vm.hostname = "vm2"
-    vm2.vm.provision "shell", path: "script_vm2.sh"
+    # vm2.vm.provision "shell", path: "script_vm2.sh"
   end
 
   # nginx load balancer
