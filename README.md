@@ -23,7 +23,7 @@ vagrant up
 ```
 
 ## Provisionamiento de las máquinas virtuales
-Las máquinas tendrán un script de provisionamiento que ejecutarán los siguientes pasos: 
+Las máquinas tendrán un script de provisionamiento que ejecutarán los siguientes pasos para instalar Docker: 
 ### Instalación de Docker
 
 ```
