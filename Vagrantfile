@@ -5,6 +5,8 @@ Vagrant.configure("2") do |config|
     config.vbguest.no_remote   = true
   end
 
+  config.vm.provision "shell", inline: $script
+
   # node.js server1
   config.vm.define :vm1 do |vm1|
     vm1.vm.box = "bento/ubuntu-20.04"
@@ -19,7 +21,7 @@ Vagrant.configure("2") do |config|
     vm2.vm.hostname = "vm2"
   end
 
-  # nginx load balancer and Postgres
+  # nginx load balancer
   config.vm.define :vm3 do |vm3|
     vm3.vm.box = "bento/ubuntu-20.04"
     vm3.vm.network :private_network, ip: "192.168.100.5"
